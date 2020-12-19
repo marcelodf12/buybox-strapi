@@ -5,6 +5,15 @@ const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
  * Read the documentation (https://strapi.io/documentation/v3.x/concepts/controllers.html#core-controllers)
  * to customize this controller
  */
+function format(num) {
+    var r = '0'
+    if (!isNaN(num)) {
+        num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g, '$1.');
+        num = num.split('').reverse().join('').replace(/^[\.]/, '');
+        r = num;
+    }
+    return r;
+}
 
 module.exports = {
     async find(ctx) {
@@ -22,10 +31,12 @@ module.exports = {
                     return {
                         id : entity.id,
                         nombre : entity.Nombre,
-                        producto : entity.producto
+                        producto : !!entity.productos?entity.productos.length:0
                     }
                 }
-            );
+            )
+            .filter(entity => entity.producto>0)
+            ;
     },
     async findOne(ctx) {
         const { id } = ctx.params;
@@ -39,7 +50,7 @@ module.exports = {
             return {
                 id: producto.id,
                 titulo: producto.titulo,
-                precio: producto.precio,
+                precio: format(producto.precio),
                 descripcion: producto.descripcion,
                 destacado: producto.destacado,
                 alternativeText: producto.imagen.alternativeText,

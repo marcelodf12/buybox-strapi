@@ -33,8 +33,8 @@
       "required": true
     },
     "categorias": {
-      "collection": "categoria",
       "via": "productos",
+      "collection": "categoria",
       "dominant": true
     },
     "destacado": {

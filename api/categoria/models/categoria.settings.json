@@ -17,8 +17,11 @@
       "unique": true
     },
     "productos": {
-      "via": "categorias",
-      "collection": "productos"
+      "collection": "productos",
+      "via": "categorias"
+    },
+    "orden": {
+      "type": "integer"
     }
   }
 }
