@@ -125,7 +125,7 @@ packages/strapi-generate-new/files/public/
 ############################
 
 .dev
-*.cache
+*.cachegit
 
 ############################
 # Visual Studio Code
@@ -135,4 +135,4 @@ front-workspace.code-workspace
 
 ## CUSTOM
 public/uploads/
-config/databases.js
+config/database.js
