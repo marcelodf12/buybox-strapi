@@ -135,4 +135,4 @@ front-workspace.code-workspace
 
 ## CUSTOM
 public/uploads/
-config/database.js
+*.sh
