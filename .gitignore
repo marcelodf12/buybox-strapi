@@ -125,7 +125,7 @@ packages/strapi-generate-new/files/public/
 ############################
 
 .dev
-*.cachegit
+*.cache
 
 ############################
 # Visual Studio Code
